@@ -19,10 +19,12 @@
   time.timeZone = "Europe/Moscow";
 
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
-  services.xserver.displayManager.defaultSession = "plasma";
-  services.xserver.desktopManager.plasma.enable = true;
+
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.defaultSession = "plasma";
+
+  services.desktopManager.plasma6.enable = true;
 
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
