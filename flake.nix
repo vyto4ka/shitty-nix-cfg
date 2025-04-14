@@ -15,7 +15,7 @@
     };
 
     homeConfigurations = {
-      "vytto4ka@vyt" = home-manager.lib.homeManagerConfiguration {
+      "vyto4ka@vyt" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [ ./hosts/vyt/home.nix ];
         extraSpecialArgs = { inherit inputs; };
