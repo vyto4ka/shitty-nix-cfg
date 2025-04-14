@@ -23,6 +23,11 @@
     };
   };
 
+  home.sessionVariables = {
+    TERMINAL = "kitty";
+  };
+
+
   home.file.".config/kitty/kitty.conf" = {
     text = ''
       font_family FiraCode Nerd Font Mono 12
