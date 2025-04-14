@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  home.stateVersion = "25.05"
   home.username = "vyto4ka";
   home.homeDirectory = "/home/vyto4ka";
 
@@ -10,7 +11,7 @@
     firefox
     nekoray
     kitty
-    neovim
+    nordic
   ];
 
   programs.zsh = {
