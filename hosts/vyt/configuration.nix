@@ -1,7 +1,13 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = 
+  [ 
+    ./hardware-configuration.nix
+    (import "${inputs.home-manager}/nixos")
+  ];
+
+  home-manager.users.vyto4ka = import ./home.nix;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
