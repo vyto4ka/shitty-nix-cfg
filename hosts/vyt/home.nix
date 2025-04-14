@@ -27,12 +27,8 @@
     TERMINAL = "kitty";
   };
 
-  home.file.".config/kitty/kitty.conf" = {
-    text = ''
-      font_family FiraCode Nerd Font Mono 12
-      confirm_os_window_close 0
-    '';
-  };
+  home.file.".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
+  home.file.".config/kitty/current-theme.conf".source = ./kitty/current-theme.conf;
 
   home.file.".config/nvim" = {
     source = ./nvim;
