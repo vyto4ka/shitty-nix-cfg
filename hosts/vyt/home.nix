@@ -26,7 +26,7 @@
   home.file.".config/kitty/kitty.conf" = {
     text = ''
       font_family FiraCode Nerd Font Mono 12
-      cursor_shape Beam
+      confirm_os_window_close 0
     '';
   };
 
