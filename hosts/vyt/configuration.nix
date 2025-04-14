@@ -29,6 +29,8 @@
   fonts.packages = with pkgs; [
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
+ 
+  programs.zsh.enable = true;
 
   users.users.vyto4ka = {
     isNormalUser = true;
