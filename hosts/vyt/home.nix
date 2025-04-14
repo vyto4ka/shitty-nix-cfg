@@ -27,21 +27,6 @@
     TERMINAL = "kitty";
   };
 
-  home.activation.setKittyAsKDETerminal = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  kdeglobals="$HOME/.config/kdeglobals"
-  mkdir -p "$(dirname "$kdeglobals")"
-  if [ -f "$kdeglobals" ]; then
-    if grep -q "^\[General\]" "$kdeglobals"; then
-      sed -i '/^\[General\]/,/^\[/ s|^TerminalApplication=.*|TerminalApplication=kitty|' "$kdeglobals"
-    else
-      echo -e "\n[General]\nTerminalApplication=kitty" >> "$kdeglobals"
-    fi
-  else
-    echo -e "[General]\nTerminalApplication=kitty" > "$kdeglobals"
-  fi
-  '';
-
-
   home.file.".config/kitty/kitty.conf" = {
     text = ''
       font_family FiraCode Nerd Font Mono 12
