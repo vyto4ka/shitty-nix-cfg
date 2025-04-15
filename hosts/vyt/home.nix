@@ -44,6 +44,6 @@
     owner = "folke";
     repo = "lazy.nvim";
     rev = "main";
-    sha256 = "0000000000000000000000000000000000000000000000000000" ;
+    sha256 = "sha256-nP9DGTdzqeZzrlVuDPf5wc2VDwQSu3NMgyDh5Ls=" ;
   };
 }
