@@ -35,10 +35,12 @@
     extraPackages = with pkgs; [ git ];
   };
 
-  home.file.".config/nvim".source = pkgs.fetchFromGitHub {
-  owner = "LazyVim";
-  repo = "starter";
-  rev = "2ae1cd4f45007fbbf3eb581c1f149f31e3bb0aa0";
-  sha256 = "0000000000000000000000000000000000000000000000000000";
-};
+  home.activation.installLazyVim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  if [ ! -e "$HOME/.config/nvim/init.lua" ]; then
+    echo "[+] Cloning LazyVim starter config..."
+    git clone https://github.com/LazyVim/starter "$HOME/.config/nvim"
+  else
+    echo "[i] LazyVim config already exists. Skipping clone."
+  fi
+  '';
 }
