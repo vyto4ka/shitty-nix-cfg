@@ -40,10 +40,10 @@
     extraPackages = with pkgs; [ git ];
   };
 
-  home.file.".local/share/nvim/site/pack/lazy/start/lazy.nvim".source = pkgs.fetchFromGitHub {
-    owner = "folke";
-    repo = "lazy.nvim";
-    rev = "main";
-    sha256 = "sha256-nP9DGTdzqeZzrlVuDPf5wc2VDwQSu3NMgyDh5Ls=" ;
-  };
+  home.file.".config/nvim".source = pkgs.fetchFromGitHub {
+  owner = "LazyVim";
+  repo = "starter";
+  rev = "2ae1cd4f45007fbbf3eb581c1f149f31e3bb0aa0";
+  sha256 = "0000000000000000000000000000000000000000000000000000";
+};
 }
