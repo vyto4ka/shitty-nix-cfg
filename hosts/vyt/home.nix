@@ -37,5 +37,13 @@
 
   programs.neovim = {
     enable = true;
+    extraPackages = with pkgs; [ git ];
+  };
+
+  home.file.".local/share/nvim/site/pack/lazy/start/lazy.nvim".source = pkgs.fetchFromGitHub {
+    owner = "folke";
+    repo = "lazy.nvim";
+    rev = "main";
+    sha256 = "0000000000000000000000000000000000000000000000000000" ;
   };
 }
