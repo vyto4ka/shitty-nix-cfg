@@ -12,6 +12,7 @@
     nekoray
     kitty
     nordic
+    git
   ];
 
   programs.zsh = {
