@@ -3,9 +3,10 @@
 {
   nixpkgs.config = {
     disabledModules = [
-      "services/window-managers/labwc.nix"
+      "modules/services/window-managers/labwc.nix"
     ];
   };
+
 
   imports = 
   [ 
