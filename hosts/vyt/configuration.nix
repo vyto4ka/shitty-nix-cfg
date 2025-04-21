@@ -1,6 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
+
+  system.stateVersion = "24.11";
   imports = 
   [ 
     ./hardware-configuration.nix
@@ -34,9 +36,11 @@
     alsa.enable = true;
   };
 
-  fonts.packages = with pkgs; [
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ];
+ fonts.packages = with pkgs; [
+   nerd-fonts.fira-code
+   nerd-fonts.droid-sans-mono
+   nerd-fonts._0xproto
+ ];
  
   programs.zsh.enable = true;
 
