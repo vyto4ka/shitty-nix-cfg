@@ -1,5 +1,5 @@
 { config, pkgs, inputs, ... }:
-
+{
   nixpkgs.config = {
     formats = {
       xml = args: { };
