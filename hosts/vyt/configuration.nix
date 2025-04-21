@@ -1,12 +1,19 @@
 { config, pkgs, inputs, ... }:
 
 {
+  nixpkgs.overlays = [
+    (self: super: {
+      formats = super.formats // {
+        xml = args: { };
+      };
+    })
+  ];
+
   nixpkgs.config = {
     disabledModules = [
       "modules/services/window-managers/labwc.nix"
     ];
   };
-
 
   imports = 
   [ 
