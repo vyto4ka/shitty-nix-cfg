@@ -1,10 +1,13 @@
-# /etc/nixos/flake.nix
 {
-  description = "NixOS 24.11 + Home Manager";
+  description = "NixOS 24.11 + Home Manager для vyt";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    # основная nixpkgs — именно ветка 24.11
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-24.11";
+    };
 
+    # home-manager той же версии, что и nixpkgs
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +18,8 @@
   let
     system = "x86_64-linux";
 
-    # Импортируем nixpkgs, сразу отключая labwc-модуль
+    # импортируем nixpkgs как полноценный package-set,
+    # сразу отключая модуль labwc
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -23,7 +27,7 @@
       };
     };
   in {
-    # NixOS-конфигурация
+    # NixOS‑конфигурация “vyt”
     nixosConfigurations = {
       vyt = pkgs.lib.nixosSystem {
         inherit system;
@@ -37,7 +41,7 @@
       };
     };
 
-    # Home Manager
+    # Home Manager для пользователя
     homeConfigurations = {
       "vyto4ka@vyt" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
