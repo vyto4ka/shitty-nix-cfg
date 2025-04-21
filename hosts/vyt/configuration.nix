@@ -1,14 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-
-{
-  nixpkgs.config = {
-    disabledModules = [
-      "services/window-managers/labwc.nix"
-    ];
-  };
-
   imports = 
   [ 
     ./hardware-configuration.nix
