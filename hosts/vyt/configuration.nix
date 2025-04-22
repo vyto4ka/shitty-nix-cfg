@@ -5,7 +5,7 @@
   system.stateVersion = "24.11";
   imports = 
   [ 
-    ./hardware-configuration.nix
+    ../../hardware-configuration.nix
     (import "${inputs.home-manager}/nixos")
   ];
 
