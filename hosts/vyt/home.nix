@@ -13,6 +13,9 @@
     kitty
     nordic
     git
+    vscodium
+    libgcc
+    netbeans
   ];
 
   programs.zsh = {
