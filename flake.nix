@@ -11,6 +11,13 @@
       "vyt" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./hosts/vyt/configuration.nix ];
+
+        nixpkgs = {
+          config = {
+            allowUnfree = true;
+          };
+        };
+
         specialArgs = { inherit inputs; };
       };
     };
