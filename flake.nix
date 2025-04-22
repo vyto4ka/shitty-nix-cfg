@@ -1,5 +1,5 @@
 {
-  description = "…";
+  description = "NixOS 24.11 config with Home Manager for multiple machines";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -7,8 +7,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = outputs = inputs@{ self, nixpkgs, home-manager, … }: let
-    system = "x86_64-linux";
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: let
+    system    = "x86_64-linux";
     pkgsUnfree = import nixpkgs {
       inherit system;
       config = { allowUnfree = true; };
@@ -18,15 +18,15 @@
       "vyt" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ ./hosts/vyt/configuration.nix ];
-        pkgs = pkgsUnfree;
+        pkgs    = pkgsUnfree;
         specialArgs = { inherit inputs; };
       };
     };
 
     homeConfigurations = {
       "vyto4ka@vyt" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./hosts/vyt/home.nix ];
+        pkgs             = nixpkgs.legacyPackages.${system};
+        modules          = [ ./hosts/vyt/home.nix ];
         extraSpecialArgs = { inherit inputs; };
       };
     };
