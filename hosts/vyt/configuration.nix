@@ -43,6 +43,9 @@
  ];
  
   programs.zsh.enable = true;
+  
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "vyto4ka" ];
 
   users.users.vyto4ka = {
     isNormalUser = true;
