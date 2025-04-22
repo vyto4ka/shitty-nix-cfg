@@ -32,8 +32,6 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   services.xserver.xkb = {
     layout = "us,ru";
     variant = ",";
