@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: let
+  outputs = outputs = inputs@{ self, nixpkgs, home-manager, … }: let
     system = "x86_64-linux";
     pkgsUnfree = import nixpkgs {
       inherit system;
