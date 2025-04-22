@@ -11,6 +11,9 @@
     firefox
     nekoray
     kitty
+    thunderbird
+    telegram-desktop
+    termius
     nordic
     git
     vscodium
