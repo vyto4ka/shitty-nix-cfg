@@ -40,7 +40,7 @@
   home.file.".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
   home.file.".config/kitty/current-theme.conf".source = ./kitty/current-theme.conf;
 
-  home.file."~/.config/neofetch/config.conf".source = ./neofetch/config.conf;
+  home.file.".config/neofetch/config.conf".source = ./neofetch/config.conf;
 
   programs.neovim = {
     enable = true;
