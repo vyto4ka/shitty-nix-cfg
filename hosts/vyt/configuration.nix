@@ -62,6 +62,9 @@
  
   programs.zsh.enable = true;
   
+  #virtualisation.virtualbox.guest.enable     = true;
+  #virtualisation.virtualbox.guest.dragAndDrop = true;
+
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "vyto4ka" ];
 
