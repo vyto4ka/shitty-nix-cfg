@@ -56,23 +56,25 @@
 
   environment.systemPackages = with pkgs; [
     git
+    libreoffice
+    hunspell
+    hunspellDicts.ru_RU
+    hunspellDicts.en_US
+    hyphen
+    openjdk
+    languagetool
   ];
 
  fonts.packages = with pkgs; [
-   libreoffice
-   hunspell
-   hunspellDicts.ru_RU
-   hunspellDicts.en_US
-   hyphen
-   openjdk
-   languagetool
+   corefonts
    nerd-fonts.fira-code
    nerd-fonts.droid-sans-mono
    nerd-fonts._0xproto
  ];
  
   programs.zsh.enable = true;
-  
+  programs.bash.enable = true;
+
   #virtualisation.virtualbox.guest.enable     = true;
   #virtualisation.virtualbox.guest.dragAndDrop = true;
 
@@ -81,7 +83,7 @@
 
   users.users.vyto4ka = {
     isNormalUser = true;
-    description = "Main user";
+    description = "vyto4ka";
     home = "/home/vyto4ka";
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" ];
