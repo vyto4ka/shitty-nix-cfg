@@ -1,5 +1,5 @@
 {
-  description = "NixOS 24.11 config with Home Manager for multiple machines";
+  description = "NixOS 24.11 config. Shitty config..";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

@@ -54,7 +54,18 @@
     alsa.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    git
+  ];
+
  fonts.packages = with pkgs; [
+   libreoffice
+   hunspell
+   hunspellDicts.ru_RU
+   hunspellDicts.en_US
+   hyphen
+   openjdk
+   languagetool
    nerd-fonts.fira-code
    nerd-fonts.droid-sans-mono
    nerd-fonts._0xproto
@@ -75,8 +86,4 @@
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" ];
   };
-
-  environment.systemPackages = with pkgs; [
-    git
-  ];
 }
