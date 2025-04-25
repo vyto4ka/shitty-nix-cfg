@@ -17,7 +17,7 @@
     nordic
     git
     vscodium
-    libgcc
+    gcc
     netbeans
     neofetch
     duf
