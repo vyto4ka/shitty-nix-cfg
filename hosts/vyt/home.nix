@@ -47,6 +47,8 @@
     extraPackages = with pkgs; [ git ];
   };
 
+  programs.bash.enable = true;
+  
   home.activation.installLazyVim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
   PATH="${pkgs.git}/bin:$PATH"
   if [ ! -e "$HOME/.config/nvim/init.lua" ]; then

@@ -73,7 +73,6 @@
  ];
  
   programs.zsh.enable = true;
-  programs.bash.enable = true;
 
   #virtualisation.virtualbox.guest.enable     = true;
   #virtualisation.virtualbox.guest.dragAndDrop = true;
