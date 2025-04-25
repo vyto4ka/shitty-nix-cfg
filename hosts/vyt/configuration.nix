@@ -63,6 +63,7 @@
     hyphen
     openjdk
     languagetool
+    bashInteractive
   ];
 
  fonts.packages = with pkgs; [
