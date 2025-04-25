@@ -78,7 +78,7 @@
   # virtualisation.virtualbox.guest.enable     = true;
   # virtualisation.virtualbox.guest.dragAndDrop = true;
   
-  # setvices.openssh.enable = true;
+  # services.openssh.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "vyto4ka" ];
