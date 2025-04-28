@@ -9,7 +9,11 @@
     disko.inputs.nixpkgs.follows        = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, disko, ... }:
+ outputs = inputs@{ self,
+                   nixpkgs,
+                   disko,
+                   "home-manager" = homeManager,
+                   ... }:
     let
       system    = "x86_64-linux";
       pkgsUnfree = import nixpkgs { inherit system; config = { allowUnfree = true; }; };
@@ -27,12 +31,12 @@
         };
       };
 
-      homeConfigurations = {
-        "vyto4ka@vyt" = home-manager.lib.homeManagerConfiguration {
-          pkgs             = nixpkgs.legacyPackages.${system};
-          modules          = [ ./hosts/vyt/home.nix ];
-          extraSpecialArgs = { inherit inputs; };
-        };
+    homeConfigurations = {
+      "vyto4ka@vyt" = homeManager.lib.homeManagerConfiguration {
+        pkgs             = nixpkgs.legacyPackages.${system};
+        modules          = [ ./hosts/vyt/home.nix ];
+        extraSpecialArgs = { inherit inputs; };
       };
     };
+  };
 }
