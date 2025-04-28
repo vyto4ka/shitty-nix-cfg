@@ -91,6 +91,5 @@
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
-  fileSystems."/".device = lib.mkDefault config.fileSystems."/".device;
-  fileSystems."/".device = lib.mkForce config.disko.devices.disk.sda.device;
+fileSystems."/".device = lib.mkForce config.disko.devices.disk.sda.device;
 }
