@@ -90,4 +90,6 @@
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" ];
   };
+
+  fileSystems."/" .device = lib.mkDefault config.fileSystems."/".device;
 }
