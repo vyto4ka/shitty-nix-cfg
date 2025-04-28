@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -90,6 +90,4 @@
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" ];
   };
-
-  fileSystems."/".device = lib.mkForce config.disko.devices.disk.sda.device;
 }
