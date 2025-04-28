@@ -1,7 +1,19 @@
+{
+  description = "…";
+
+  inputs = {
+    nixpkgs.url         = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url    = "github:nix-community/home-manager";
+    disko.url           = "github:nix-community/disko";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    disko.inputs.nixpkgs.follows        = "nixpkgs";
+  };
+
 outputs = inputs@{ … }: let
   system      = "x86_64-linux";
   nixpkgs      = inputs.nixpkgs;
   disko        = inputs.disko;
+  # Вместо деструктуризации с дефисом — просто берём из inputs
   homeManager  = inputs."home-manager";
 
   # Ваши unfree-пакеты
@@ -10,6 +22,7 @@ outputs = inputs@{ … }: let
     config = { allowUnfree = true; };
   };
 in {
+  # NixOS-конфигурация
   nixosConfigurations = {
     vyt = nixpkgs.lib.nixosSystem {
       inherit system;
@@ -23,6 +36,7 @@ in {
     };
   };
 
+  # Home-Manager-конфигурация
   homeConfigurations = {
     "vyto4ka@vyt" = homeManager.lib.homeManagerConfiguration {
       pkgs             = nixpkgs.legacyPackages.${system};
@@ -30,4 +44,5 @@ in {
       extraSpecialArgs = { inherit inputs; };
     };
   };
+};
 }
