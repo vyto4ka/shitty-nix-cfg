@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
 
@@ -91,5 +91,5 @@
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
-fileSystems."/".device = lib.mkForce config.disko.devices.disk.sda.device;
+  fileSystems."/".device = lib.mkForce config.disko.devices.disk.sda.device;
 }
