@@ -1,22 +1,17 @@
-{
-  description = "…";
+outputs = inputs@{ … }: let
+  system      = "x86_64-linux";
+  nixpkgs      = inputs.nixpkgs;
+  disko        = inputs.disko;
+  homeManager  = inputs."home-manager";
 
-  inputs = {
-    nixpkgs.url         = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url    = "github:nix-community/home-manager";
-    disko.url           = "github:nix-community/disko";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    disko.inputs.nixpkgs.follows        = "nixpkgs";
+  # Ваши unfree-пакеты
+  pkgsUnfree = import nixpkgs {
+    inherit system;
+    config = { allowUnfree = true; };
   };
-
- outputs = inputs@{ nixpkgs, disko, ... }: let
-  system     = "x86_64-linux";
-  pkgsUnfree = import nixpkgs { inherit system; config = { allowUnfree = true; }; };
-  # Алиас для home-manager берём из inputs
-  homeManager = inputs."home-manager";
 in {
   nixosConfigurations = {
-    "vyt" = nixpkgs.lib.nixosSystem {
+    vyt = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         disko.nixosModules.disko
@@ -35,5 +30,4 @@ in {
       extraSpecialArgs = { inherit inputs; };
     };
   };
-};
 }
