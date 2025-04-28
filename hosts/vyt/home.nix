@@ -49,13 +49,13 @@
 
   programs.bash.enable = true;
   
-  home.activation.installLazyVim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  PATH="${pkgs.git}/bin:$PATH"
-  if [ ! -e "$HOME/.config/nvim/init.lua" ]; then
-    echo "[+] Cloning LazyVim starter config..."
-    git clone https://github.com/LazyVim/starter "$HOME/.config/nvim"
-  else
-    echo "[i] LazyVim config already exists. Skipping clone."
-  fi
-  '';
+ # home.activation.installLazyVim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+ # PATH="${pkgs.git}/bin:$PATH"
+ # if [ ! -e "$HOME/.config/nvim/init.lua" ]; then
+ #   echo "[+] Cloning LazyVim starter config..."
+ #   git clone https://github.com/LazyVim/starter "$HOME/.config/nvim"
+ # else
+ #   echo "[i] LazyVim config already exists. Skipping clone."
+ # fi
+ # '';
 }
