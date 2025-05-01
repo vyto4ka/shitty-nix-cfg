@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+с{ config, pkgs, inputs, ... }:
 
 {
 
@@ -12,8 +12,11 @@
   home-manager.users.vyto4ka = import ./home.nix;
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   networking.hostName = "vyt";
   networking.networkmanager.enable = true;
 
